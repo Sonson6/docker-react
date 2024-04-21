@@ -1,9 +1,9 @@
 sudo: required
 services:
- - docker
+  - docker
 
 before_install:
- -  docker build -t nelsoncastro/docker-react -f Dockerfile.dev .
+  -  docker build -t nelsoncastro/docker-react -f Dockerfile.dev .
 
 script:
- - docker run nelsoncastro/docker-react npm run test -- --coverage
+  - docker run -e CI=true nelsoncastro/docker-react npm run test
